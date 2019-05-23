@@ -23,7 +23,7 @@
       </div>
 </template>
  <script> 
- // 引入vuex 里的状态管理模块
+ // 引入vuex 里的状态管理模块 分支elmemt ui
   import {mapState,mapGetters,mapMutations,mapActions} from "vuex" 
     
  export default {
