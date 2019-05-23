@@ -46,44 +46,67 @@ npm install css-loader sass-loader node-loader node-sass sass-resources-loader  
 
 #配置路由
 1.确保已经安装vue-router 没有下载 npm install vue-router --save
+
 2. 在src 中创建文件夹 router  创建文件 index.js
+
 3. index.js 中配置
         1> 引入Vue      import Vue form "vue"
+        
         2> 引入 Router  import Router form "vue-router"
+        
         3> 使用中间件    Vue.use(router)
+        
         4>创建router实例并暴露出去
+        
            ```     export default new Router( {
                     routes:[
                         {path:"xxx",
                         component:xxx}
                     ]
                 })````
+                
 4.在main.js 中引入  import router from "./src/router" ,挂载到vue实例上
 
 #模块化引入vuex
+
  1. npm install vuex --save -dev
+ 
  2. 在src中创建store文件夹 创建index.ja    state.js getters.js matution.js matution-type.js actions.js
+ 
  3. index.js 引入其他js文件 暴露出去index.js
+ 
        ``` 1> import  Vue form "vue"
+       
         2> import Vuex form  "vuex"
+        
            Vue.use(vuex)
+           
            export default  new Vuex.store({
                state,
                getters,
                matutions,
                actions
            })```
+           
 
 ``` 4. main.js引入store 挂载到vue的实例上
+
 #封装自己的ajax
+
  1.在src文件中创建api文件夹  
+ 
        子文件 index.js      封装所有接口
+       
        子文件  req-url.js   放置所有接口请求地址
+       
        子文件  ajax.js      封装自己的ajax
        
        # 跨越问题
+       
   1.配置代理解决跨域
-    ```地址：config => index.js =>proxyTale:{}       
+  
+    ```地址：config => index.js =>proxyTale:{}     
+    
        proxyTable:{
            "/api":{
                target:"http:localhost:3000" //目标接口域名改成自己的
@@ -93,6 +116,7 @@ npm install css-loader sass-loader node-loader node-sass sass-resources-loader  
                }
            }
        }```
+       
 #以上基本完成 移动端布局
        
 For a detailed explanation on how things work,
