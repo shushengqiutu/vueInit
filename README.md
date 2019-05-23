@@ -29,7 +29,9 @@ npm install css-loader sass-loader node-loader node-sass sass-resources-loader  
 
 #全局引入  px2rem.scss
 1.将px2rem.scss 引入mixin.scss   @"./px2rem.scss" 
+
 2 在mixin.scss中可以放入全局需要使用的scss变量  $color:red
+
 3.配置文件中配置，将mixin.scss引入全局  build -> utils 中的
 
     scss: generateLoaders('sass').concat({
