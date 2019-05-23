@@ -81,4 +81,20 @@ npm install css-loader sass-loader node-loader node-sass sass-resources-loader  
        子文件  req-url.js   放置所有接口请求地址
        子文件  ajax.js      封装自己的ajax
        
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).```
+       # 跨越问题
+  1.配置代理解决跨域
+    ```地址：config => index.js =>proxyTale:{}       
+       proxyTable:{
+           "/api":{
+               target:"http:localhost:3000" //目标接口域名改成自己的
+               changeOrigin:true,           //是否跨域
+               pathRewrite：{
+                   "^/api":""               // 重写接口
+               }
+           }
+       }```
+#以上基本完成 移动端布局
+       
+For a detailed explanation on how things work,
+check out the [guide](http://vuejs-templates.github.io/webpack/) and
+[docs for vue-loader](http://vuejs.github.io/vue-loader).```
