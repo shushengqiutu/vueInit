@@ -80,5 +80,26 @@ npm install css-loader sass-loader node-loader node-sass sass-resources-loader  
        子文件 index.js      封装所有接口
        子文件  req-url.js   放置所有接口请求地址
        子文件  ajax.js      封装自己的ajax
+
+#按需引入Element 
+1.1  npm i element-ui -S
+1.2，安装 babel-plugin-component：  
+
+      ```npm install babel-plugin-component -D 
+        然后，将 .babelrc 修改为：
+
+            {
+            "presets": [["es2015", { "modules": false }]],
+            "plugins": [
+                [
+                "component",
+                {
+                    "libraryName": "element-ui",
+                    "styleLibraryName": "theme-chalk"
+                }
+                ]
+            ]
+            } ```
+  
        
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

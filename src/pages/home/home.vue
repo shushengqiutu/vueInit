@@ -3,6 +3,8 @@
             <h1> 首页</h1>
             <h1> {{get_msg}}</h1>
             <h3> {{get_msg1}}</h3>
+ <el-button disabled>默认按钮</el-button>
+ <el-input placeholder="请输入密码" v-model="input" show-password></el-input>
 
             <h4>{{msg}}</h4>
             <p> {{this.$store.state.list.title}}</p>
