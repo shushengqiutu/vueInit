@@ -24,13 +24,28 @@
   "plugins": [
     [
       "component",
-      {
-        "libraryName": "element-ui",
-        "styleLibraryName": "theme-chalk"
-      }
+      [{
+        "libraryName": "mint-ui",
+        "style": true
+      },
+        {
+          "libraryName": "element-ui",
+          "styleLibraryName": "theme-chalk"
+        }]
     ]
   ]
 }
+
+// ["component",
+//   [{
+//     "libraryName": "mint-ui",
+//     "style": true
+//   },
+//     {
+//       "libraryName": "element-ui",
+//       "styleLibraryName": "theme-chalk"
+//     }]
+// ]
 
 
 // {

@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 
 import "./assets/lib/hotCssJs/hotcss"
+import "./component_mint_ui"
+import 'mint-ui/lib/style.css'
 import "./component_EleUI"
 import router from "./router"
 import store from "./store"
@@ -11,6 +13,7 @@ import store from "./store"
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+
 
 
 
