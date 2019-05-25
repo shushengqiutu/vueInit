@@ -25,3 +25,9 @@ new Vue({
     store,
     template: '<App/>'
 })
+router.beforeEach((to, from, next) => {
+
+
+    next()
+
+})

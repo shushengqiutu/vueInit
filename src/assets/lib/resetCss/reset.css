@@ -82,7 +82,7 @@ input {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
+    /* font-size: 100%; */
     font-weight: normal;
     vertical-align: baseline;
 }
@@ -127,8 +127,10 @@ table {
 
 /* custom */
 
-a {
-    /* color: #7e8c8d; */
+a:link,
+a:hover,
+a:active,
+a:visited {
     text-decoration: none;
     -webkit-backface-visibility: hidden;
 }

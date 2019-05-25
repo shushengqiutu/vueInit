@@ -4,14 +4,16 @@
            <pic-song></pic-song>
            <Title :song="musicNew"></Title>
            <music-list></music-list>
-           <music-list></music-list>
-           <music-list></music-list>
-         
+        
+           <my-foot></my-foot>
 
       </div>
 </template>
    <script>
    import Title from "../../../components/title/title.vue"
+   import myFoot from "../../../components/foot/footer.vue"
+   
+
    import musicList from "../../../components/music_list/music_list.vue"
    
 
@@ -25,7 +27,7 @@
         },
 
        components:{
-             Title,picSong, musicList 
+             Title,picSong, musicList,myFoot
        }
    }
    </script>

@@ -1,19 +1,20 @@
 <template >
+
   <div class="header">
     <div class="top clearfixed">
-      <h1> <i class="el-icon-service"></i>网易音乐云</h1>
+      <h1> <i class="el-icon-service"></i>网易音乐云 </h1>
       <a href="javaScript:;">登录/注册</a>
     </div>
     <nav>
-      <a href="javaScript:;"
+      <span href="javaScript:;"
      
        v-for=" (item,index) in nav" 
        :key="index" 
-       :class="{line:index==num}"
+       :class="{line:item.pathName==num}"
        @click="jump(item,index)"
        > {{item.name}}
 
-       </a>
+       </span>
     
     </nav>
     <div class="wire"></div>
@@ -22,10 +23,11 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 export default {
     data(){
         return{
-            num:0,
+            num:"",
             nav:[
                {name:"推荐音乐",pathName:"music"},
                {name:"热歌榜",pathName:"hot"},
@@ -34,10 +36,28 @@ export default {
         }
         
     },
+    
+     mounted () {
+      this.num= this.$route.name
+       
+    },
+    watch:{
+         
+         "$route.name"(route){
+                 console.log(route)
+                this.num=route
+          }
+      
+    },
+      
+    
+    
     methods:{
+        
+        
         jump(obj,index){
-            console.log(obj,index)
-            this.num=index;
+
+            
             this.$router.push({
                 name:obj.pathName,
                 params:{
@@ -45,8 +65,11 @@ export default {
                 }
             })
         }
-    }
+    },
+ 
+   
 };
+ 
 </script>
 
 
@@ -97,10 +120,11 @@ export default {
     background-color: #fff;
     justify-content: space-around;
     align-items: center;
-    a {
+    span {
       line-height: px2rem(39);
       text-align: center;
-      font-size: 30px;
+      font-size: px2rem(15);
+     
       color: #333;
       
     }

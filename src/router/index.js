@@ -15,16 +15,25 @@ export default new Router({
                     path: "/music",
                     name: "music",
                     component: Music,
+                    meta: {
+                        keepAlive: true // 不需要缓存
+                    }
                 },
                 {
                     path: "/hot",
                     name: "hot",
                     component: Hot,
+                    meta: {
+                        keepAlive: false // 不需要缓存
+                    }
                 },
                 {
                     path: "/search",
                     name: "search",
-                    component: Search
+                    component: Search,
+                    meta: {
+                        keepAlive: false // 不需要缓存
+                    }
                 }
             ]
         },
@@ -36,4 +45,5 @@ export default new Router({
 
 
     ]
+
 })

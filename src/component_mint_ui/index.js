@@ -1,3 +1,4 @@
 import Vue from 'vue'
-import { Button, Cell } from 'mint-ui'
+import { Button, Search } from 'mint-ui'
 Vue.component(Button.name, Button)
+Vue.component(Search.name, Search);
