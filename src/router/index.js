@@ -12,11 +12,11 @@ export default new Router({
             name: "home",
             component: Home,
             children: [{
-                    path: "/music",
+                    path: "",
                     name: "music",
                     component: Music,
                     meta: {
-                        keepAlive: true // 不需要缓存
+                        keepAlive: false // 不需要缓存
                     }
                 },
                 {

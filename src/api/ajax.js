@@ -12,7 +12,7 @@ export default function ajax(url, data = {}, type = "GET") {
                 dataStr = dataStr.substring(0, dataStr.lastIndexOf("&"))
                 url += "?" + dataStr + "&time=" + Math.random()
             }
-            console.log(url)
+
             promise = axios.get(url)
 
         } else {

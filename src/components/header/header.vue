@@ -44,7 +44,6 @@ export default {
     watch:{
          
          "$route.name"(route){
-                 console.log(route)
                 this.num=route
           }
       
