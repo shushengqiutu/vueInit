@@ -6,19 +6,20 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
   created() {
      this.get_recommended_songs();
+     this.get_new_songs();
   },
   mounted() {
    
   
   },
   methods: {
-    ...mapActions(["get_recommended_songs", "get_add_msg"])
+    ...mapActions(["get_recommended_songs", "get_new_songs",])
   }
 };
 </script>

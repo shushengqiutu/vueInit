@@ -1,12 +1,12 @@
 <template>
       <div class="music"> 
            <Title :song="song"></Title>
-           <pic-song :picsongs="pic_songs" :a="1"></pic-song>
+           <pic-song ></pic-song>
            <Title :song="musicNew"></Title>
-           <music-list></music-list>
+           <music-list :newSongs="newSongs" ></music-list>
          
            <my-foot></my-foot>
-         
+           <div>111</div>
              
       </div>
 </template>
@@ -30,14 +30,17 @@
           
         },
         mounted(){
-       
+        
         },
         computed:{
          
+          newSongs(){
+             return this.f_new_songs()
+          }
         
         },
         methods:{
-            ...mapGetters(["f_recommended_songs"])
+            ...mapGetters(["f_new_songs"])
         },
        components:{
              Title,picSong, musicList,myFoot

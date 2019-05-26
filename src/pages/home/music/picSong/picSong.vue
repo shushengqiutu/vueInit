@@ -10,8 +10,8 @@
         :src="item.picUrl"
         alt=""
       >
-      <span> <i class="el-icon-service"> </i>51.4万 </span>
-      <p class="sub-text"> item.copywriter </p>
+      <span> <i class="el-icon-service"> </i>{{item.playCount}}</span>
+      <p class="sub-text"> {{item.name}} </p>
     </li>
 
   </ul>
@@ -21,30 +21,21 @@ import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 export default {
    data(){
        return {
-         picSongs:[]
+         
        }
    },
-
-  created() {
-    
-    this.picSongs=this.f_recommended_songs()
-    // 请求数据赋值给picSongs
+  computed: {
+     
+     picSongs(){
+       return this.f_recommended_songs()
       
         
-    console.log(this.picSongs,1)
+     }
   },
-  beforeMount(){
-    var a=this.f_recommended_songs()
-       console.log(a)
-  },
-  // computed: {
-     
-  //    picSongs(){
-  //     return this.f_recommended_songs()
-  //    }
-  // },
   methods:{
-   ...mapGetters(["f_recommended_songs"])
+   ...mapGetters(["f_recommended_songs"]),
+   
+
   }
 };
 </script>

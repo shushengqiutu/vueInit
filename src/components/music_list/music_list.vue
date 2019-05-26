@@ -1,29 +1,36 @@
 <template>
   <div class="music_list">
 
-    <div class="sub_list">
-      <div class="sort"></div>
+    <div class="sub_list" v-for="(item,index) in newSongs" :key="index">
+      <div class="sort" v-if="a"></div>
       <div class="song">
-        <h3 class=" songName f-thide"> 残酷月光</h3>
-        <p class="author f-thide"> 作者</p>
+        <h3 class=" songName f-thide"> {{item.song.name}}</h3>
+        <p class="author f-thide">{{item.song.artists[0].name}} - {{item.song.album.name}}</p>
       </div>
       <div class="play">
         <i class="el-icon-caret-right icon-play"></i>
       </div>
     </div>
-    <div class="sub_list">
-      <div class="song">
-        <h3 class=" songName f-thide"> 残酷月光</h3>
-        <p class="author f-thide"> 作者</p>
-      </div>
-      <div class="play">
-        <i class="el-icon-caret-right icon-play"></i>
-      </div>
-    </div>
+ 
   </div>
 </template>
    <script>
-export default {};
+export default {
+  
+    props:{
+            newSongs:{
+                type:Array
+            },
+            a:{
+                type:String,
+                default:""
+            }
+
+        },
+        mounted () {
+          console.log(this,11)
+        }
+};
 </script>
    
 <style lang="scss" scoped>
@@ -31,6 +38,7 @@ export default {};
   min-height: px2rem(200);
   
   .sub_list {
+    width: 100%;
     display: flex;
     // justify-content: space-between;
     padding: px2rem(4) 0 px2rem(2) 0;
@@ -52,16 +60,23 @@ export default {};
         font-size: px2rem(17);
         line-height: px2rem(27);
         color: #333;
+        width: px2rem(320);
       }
       .author {
         font-size: px2rem(12);
         line-height: px2rem(18);
         color: #888;
+       
+        
+        
         &::before {
           content: "SQ";
           color: #e61a1a;
           border: 1px solid #ff3300;
           font-size: px2rem(8);
+          vertical-align: top;
+         
+          margin-right: px2rem(5);
         }
       }
     }
