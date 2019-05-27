@@ -11,6 +11,7 @@ export default {
                 return item
 
             } else {
+                item.playCount = parseInt(item.playCount)
                 return item
             }
         })

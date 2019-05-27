@@ -27,7 +27,7 @@ export default {
    
   },
   mounted() {
-    console.log(this, 11);
+    
   }
 };
 </script>

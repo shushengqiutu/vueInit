@@ -3,6 +3,7 @@
 
     <li
       class="sub_song"
+      @click="jumpInfo(item.id)"
       v-for="(item,index) in picSongs"
       :key="index"
     >
@@ -11,7 +12,7 @@
         alt=""
       >
       <span> <i class="el-icon-service"> </i>{{item.playCount}}</span>
-      <p class="sub-text"> {{item.name}} </p>
+      <p class="sub-text"> {{item.name}}  </p>
     </li>
 
   </ul>
@@ -34,6 +35,14 @@ export default {
   },
   methods:{
    ...mapGetters(["f_recommended_songs"]),
+   jumpInfo(id){
+         this.$router.push({
+                name:"songSheetInfo",
+                query:{
+                    songListId:id
+                }
+            })
+   }
    
 
   }

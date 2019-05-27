@@ -1,5 +1,13 @@
-import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV, SET_HOT_SONGS, SET_HOT_SEARCH } from "./mutation-type" //引入matution函数名
-import { req_add_msg, req_recommended_songs, req_new_songs, req_mv, req_hot_songs, req_hot_search } from "../api" // 引入封装好的接口
+import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV, SET_HOT_SONGS, SET_HOT_SEARCH, SET_SONG_LIST_INFO } from "./mutation-type" //引入matution函数名
+import {
+    req_add_msg,
+    req_recommended_songs,
+    req_new_songs,
+    req_mv,
+    req_hot_songs,
+    req_hot_search,
+    req_song_list_info
+} from "../api" // 引入封装好的接口
 //action  可以处理同步和异步 一般是异步的 通过调用 mutation 里的函数来达到修改state的目的
 export default {
     // 1.asyns  await 处理异步 数据 
@@ -14,6 +22,7 @@ export default {
         }
 
     },
+
     //异步获取推荐音乐列表
     async get_recommended_songs({ commit }) {
         const result = await req_recommended_songs()
@@ -24,6 +33,18 @@ export default {
 
 
     },
+    //异步获取歌单详细
+    async get_song_list_info({ commit }, { id }) {
+        const result = await req_song_list_info({ id })
+        if (result.code == 200) {
+            console.log(result)
+            const song_list_info = result.result
+            commit(SET_SONG_LIST_INFO, { song_list_info })
+        }
+
+
+    },
+
     //异步获取新音乐
     async get_new_songs({ commit }) {
         const result = await req_new_songs()
@@ -63,4 +84,5 @@ export default {
             commit(SET_HOT_SEARCH, { hot_search })
         }
     }
+
 }
