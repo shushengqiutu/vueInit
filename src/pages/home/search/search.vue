@@ -3,27 +3,28 @@
     <sub-search></sub-search>
     <h3 class="hotSearch"> 热门搜索</h3>
     <div class="textList">
-      <span v-for="i in 6" :key="i"> 孤单心事</span>
+      <span v-for="(item,index) in hot_search" :key="index"> {{item.first}}</span>
     </div>
   </div>
 </template>
    <script>
 
 import subSearch from "../../../components/search/sub_search.vue";
- 
+import { mapState } from "vuex";
 
 export default {
   components: {
     subSearch
   },
   mounted(){
-    const newPathName=this.$route.name
-   
+    this.$store.dispatch("get_hot_search")
+ 
    
   },
-  methods:{
-  
+  computed:{
+     ...mapState(["hot_search"])
   }
+ 
 };
 </script>
    

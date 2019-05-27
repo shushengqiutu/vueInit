@@ -6,7 +6,7 @@
            <music-list :newSongs="newSongs" ></music-list>
          
            <my-foot></my-foot>
-           <div>111</div>
+           
              
       </div>
 </template>

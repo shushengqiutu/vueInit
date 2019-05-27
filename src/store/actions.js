@@ -1,5 +1,5 @@
-import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV } from "./mutation-type" //引入matution函数名
-import { req_add_msg, req_recommended_songs, req_new_songs, req_mv } from "../api" // 引入封装好的接口
+import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV, SET_HOT_SONGS, SET_HOT_SEARCH } from "./mutation-type" //引入matution函数名
+import { req_add_msg, req_recommended_songs, req_new_songs, req_mv, req_hot_songs, req_hot_search } from "../api" // 引入封装好的接口
 //action  可以处理同步和异步 一般是异步的 通过调用 mutation 里的函数来达到修改state的目的
 export default {
     // 1.asyns  await 处理异步 数据 
@@ -35,12 +35,32 @@ export default {
     },
     //异步获取轮播图
     async get_mv({ commit }) {
-        const limit = "";
+        const limit = "1";
         const result = await req_mv(limit)
-        console.log(result.data)
+
         if (result.code == 200) {
             const top_mv = result.data
             commit(SET_TOP_MV, { top_mv })
+        }
+    },
+    //异步获取热歌排行榜
+    async get_hot_songs({ commit }) {
+        const idx = "1";
+        const result = await req_hot_songs(idx)
+
+        if (result.code == 200) {
+            const hot_songs = result.playlist.tracks
+            commit(SET_HOT_SONGS, { hot_songs })
+        }
+    },
+    //异步获取热门搜索列表
+    async get_hot_search({ commit }) {
+
+        const result = await req_hot_search()
+
+        if (result.code == 200) {
+            const hot_search = result.result.hots
+            commit(SET_HOT_SEARCH, { hot_search })
         }
     }
 }

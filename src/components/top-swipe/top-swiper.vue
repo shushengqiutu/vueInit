@@ -3,9 +3,9 @@
     <template>
   <div class="block">
    
-    <el-carousel  trigger="click" height="500px">
+    <el-carousel  trigger="click" height="422px">
 
-      <el-carousel-item v-for="item in top_mv" :key="item">
+      <el-carousel-item v-for="(item,index) in top_mv" :key="index">
          <img :src="item.cover" alt="" width="100%">   
       </el-carousel-item>
     </el-carousel>
@@ -17,7 +17,7 @@
    import { mapState, mapActions } from "vuex";
 export default {
    mounted(){
-     this.get_mv()
+      this.get_mv()
    },
    computed:{
         ...mapState(["top_mv"])
@@ -37,7 +37,7 @@ export default {
     color: #475669;
     font-size: 14px;
     opacity: 0.75;
-     line-height: px2rem(100);
+    //  line-height: px2rem(100);
     margin: 0;
   }
 

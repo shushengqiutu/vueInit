@@ -19,6 +19,9 @@ export default {
     //过滤获取新音乐列表
     f_new_songs(state) {
         return state.new_songs.slice(0, 10)
+    },
+    f_hot_songs(state) {
+        return state.hot_songs.slice(0, 20)
     }
 
 }

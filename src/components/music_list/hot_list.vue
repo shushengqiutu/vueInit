@@ -1,14 +1,15 @@
 <template>
-  <div class="music_list">
+  <div class="hot_list">
 
     <div
       class="sub_list"
-      v-for="(item,index) in newSongs"
+      v-for="(item,index) in  hot_songs"
       :key="index"
-    >
+    > 
+      <div class="sort" :class="{red:index<4}"> {{index+1>9?index+1: "0"+(index+1)}}</div>
       <div class="song">
-        <h3 class=" songName f-thide"> {{item.song.name}}</h3>
-        <p class="author f-thide">{{item.song.artists[0].name}} - {{item.song.album.name}}</p>
+        <h3 class=" songName f-thide"> {{item.name}}</h3>
+        <p class="author f-thide">{{item.ar[0].name}} - {{item.al.name}}</p>
       </div>
       <div class="play">
         <i class="el-icon-caret-right icon-play"></i>
@@ -21,19 +22,20 @@
    <script>
 export default {
   props: {
-    newSongs: {
+    hot_songs: {
       type: Array
-    }
-   
+    },
+  
   },
   mounted() {
-    console.log(this, 11);
+    
   }
 };
 </script>
    
 <style lang="scss" scoped>
-.music_list {
+.hot_list {
+  margin-top:5px;
   min-height: px2rem(200);
 
   .sub_list {
@@ -46,26 +48,30 @@ export default {
     border: 0 solid rgba(0, 0, 0, 0.1);
     border-bottom-width: 1px;
     .sort {
-      flex: 2;
+      flex: 1;
+      font-size: px2rem(16);
       text-align: center;
       line-height: px2rem(45);
     }
+    .red{
+      color: #df3436;
+    }
     .song {
-      padding-left: 2%;
+      
       // width: 87%;
-      flex: 14;
+      flex: 1;
 
       .songName {
         font-size: px2rem(17);
         line-height: px2rem(27);
         color: #333;
-        width: px2rem(320);
+        width: px2rem(295);
       }
       .author {
         font-size: px2rem(12);
         line-height: px2rem(18);
         color: #888;
-        width: px2rem(320);
+        width: px2rem(300);
 
         &::before {
           content: "SQ";
@@ -80,7 +86,7 @@ export default {
     }
     .play {
       // width: 11%;
-      flex: 2;
+      flex: 1;
       font-size: px2rem(16);
 
       text-align: center;
