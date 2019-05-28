@@ -5,6 +5,8 @@
       class="sub_list"
       v-for="(item,index) in  hot_songs"
       :key="index"
+      :id="item.id"
+      @click="jumpPlay(item.id,item.name+'-' +item.ar[0].name)"
     > 
       <div class="sort" :class="{red:index<4}"> {{index+1>9?index+1: "0"+(index+1)}}</div>
       <div class="song">
@@ -29,6 +31,14 @@ export default {
   },
   mounted() {
     
+  },
+  methods:{
+    jumpPlay(id,info){
+      this.$router.push({name:"play",query:{
+        id:id,
+        info:info
+      }})
+    }
   }
 };
 </script>

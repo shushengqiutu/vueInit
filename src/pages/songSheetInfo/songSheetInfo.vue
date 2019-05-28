@@ -1,7 +1,8 @@
 <template >
       <div class="songSheetInfo"> 
-          <Info></Info>
-          <List></List>
+          <Info  :info="song_list_info"></Info>
+          <List :hot_songs="song_list_info.tracks"></List>
+          
      </div>
 </template>
 
@@ -16,8 +17,9 @@ export default {
     },
     mounted(){
         const id=this.$route.query.songListId
-        console.log(id)
+    
        this.$store.dispatch("get_song_list_info",{id})
+      
     },
     data(){
         return {

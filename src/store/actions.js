@@ -1,4 +1,4 @@
-import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV, SET_HOT_SONGS, SET_HOT_SEARCH, SET_SONG_LIST_INFO } from "./mutation-type" //引入matution函数名
+import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV, SET_HOT_SONGS, SET_HOT_SEARCH, SET_SONG_LIST_INFO, SET_SONG_URL, SET_LYRIC } from "./mutation-type" //引入matution函数名
 import {
     req_add_msg,
     req_recommended_songs,
@@ -6,7 +6,10 @@ import {
     req_mv,
     req_hot_songs,
     req_hot_search,
-    req_song_list_info
+    req_song_list_info,
+    play_song,
+    req_lyric
+
 } from "../api" // 引入封装好的接口
 //action  可以处理同步和异步 一般是异步的 通过调用 mutation 里的函数来达到修改state的目的
 export default {
@@ -37,9 +40,34 @@ export default {
     async get_song_list_info({ commit }, { id }) {
         const result = await req_song_list_info({ id })
         if (result.code == 200) {
-            console.log(result)
-            const song_list_info = result.result
+
+            const song_list_info = result.playlist
+
             commit(SET_SONG_LIST_INFO, { song_list_info })
+        }
+
+
+    },
+    //异步获取音乐播放地址
+    async get_song_url({ commit }, { id }) {
+        const result = await play_song({ id })
+        if (result.code == 200) {
+            console.log(result, 2211)
+            const song_url = result.data
+
+            commit(SET_SONG_URL, { song_url })
+        }
+
+
+    },
+    //异步获取歌词
+    async get_lyric({ commit }, { id }) {
+        const result = await req_lyric({ id })
+        if (result.code == 200) {
+
+            const lyric = result.lrc
+            console.log(lyric, 2211)
+            commit(SET_LYRIC, { lyric })
         }
 
 

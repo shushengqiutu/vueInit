@@ -3,6 +3,7 @@ import Router from "vue-router"
 
 import Home from "../pages/home/home"
 import SongSheetInfo from "../pages/songSheetInfo/songSheetInfo"
+import Play from "../pages/play/play"
 
 import Music from "../pages/home/music/music"
 import Hot from "../pages/home/hot/hot"
@@ -26,6 +27,14 @@ export default new Router({
             path: "/songSheetInfo",
             name: "songSheetInfo",
             component: SongSheetInfo,
+            meta: {
+                keepAlive: false // 不需要缓存
+            }
+        },
+        {
+            path: "/play",
+            name: "play",
+            component: Play,
         },
         {
 

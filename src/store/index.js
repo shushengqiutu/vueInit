@@ -5,6 +5,7 @@ import actions from "./actions"
 import Vue from "vue"
 import list from "./sub-store/list/list"
 import car from "./sub-store/shopcar/car"
+import createPersistedState from 'vuex-persistedstate'
 // import Vuex from "vuex"
 // Vue.use(vuex)
 import Vuex from "vuex"
@@ -17,5 +18,6 @@ export default new Vuex.Store({
     modules: {
         list,
         car
-    }
+    },
+    plugins: [createPersistedState()] //防止数据刷新丢失
 })

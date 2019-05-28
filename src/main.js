@@ -10,6 +10,7 @@ import "./component_EleUI"
 import router from "./router"
 import store from "./store"
 
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -23,6 +24,7 @@ new Vue({
     components: { App },
     router,
     store,
+
     template: '<App/>'
 })
 router.beforeEach((to, from, next) => {

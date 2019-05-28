@@ -1,43 +1,42 @@
 <template >
   <div class="listInfo">
-    <div class="info_wrap">
+    <div class="info_wrap" >
       <div class="content">
         <div class="left">
           <img
-            src="./img/1.jpg"
+            :src="info.coverImgUrl"
             width="100%"
             alt=""
           >
         </div>
         <div class="right">
-          <h3>那些独处时听的歌 别让悲伤逆流成河</h3>
-          <a href="">
+          <h3>{{info.name}}</h3>
+          <a href="#">
             <img
-              class="tip"
-              src="./img/1.jpg"
+              class="tip" 
+              :src="info.creator.avatarUrl"
               height="100%"
               alt=""
             >
 
-            <i class="el-icon-star-off star"></i>
-            aa3333333333333333333333333
+            <!-- <i class="el-icon-star-off star" :style="{background:`url(${info.creator.backgroundUrl})`}"></i> -->
+            {{info.creator.nickname}}
           </a>
         </div>
       </div>
     </div>
     <div class="tagWrap">
-      <p class="tag"> 标签：<span> 日语</span> <span> 日语</span><span> 日语</span></p>
+      <p class="tag"> 标签：<span v-for="(tag,index) in info.tags" :key="index"> {{tag}}</span> </p>
       <div class="infoWrap">
         <div
           class="info"
           v-if="show"
+          :key="4"
         >
-          <p> 简介: 简介：季的喜爱。历尽心血逐一对照第四季全部出现的歌曲和BGM创建歌单。来纪念曾经的记忆和未燃尽的激情。如有缺漏请留言 <i> ...</i> </p>
+          <p    :key="11"> 简介: {{description}} <i :key="1213"> ...</i> </p>
         </div>
-        <div class="copy" v-else>
-          <p> 简介: 简介：季的喜爱。历尽心血逐一对照第四季全部出现的歌曲和BGM创建歌单。来纪念曾经的记忆和未燃尽的激情。如有缺漏请留言
-           来纪念曾经的记忆和未燃尽的激情。
-           Vue.js（读音 /vjuː/, 类似于 view）是一个构建数据驱动的 web 界面的渐进式框架。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。
+        <div class="copy" v-else :key="3" >
+          <p :key="21"> 简介:{{description}}
           </p>
         </div>
 
@@ -55,10 +54,25 @@
 
 <script>
 export default {
+  mounted(){
+    
+  },
+  props:{
+    info:{
+     type:Object
+    }
+  },
   data() {
     return {
       show: true
     };
+
+  },
+  computed: {
+    description(){
+    return   this.info.description
+     
+    }
   }
 };
 </script>
@@ -73,9 +87,11 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+  background: url()
 }
 
 .listInfo {
+  background-color: #f8f8f8;
   .info_wrap {
     width: 100%;
     height: px2rem(195);
@@ -123,7 +139,8 @@ export default {
           font-size: px2rem(16);
           line-height: px2rem(30);
           padding-left: px2rem(40);
-          color: rgba(255, 255, 255, 0.7);
+          color: #fff;
+          // color: rgba(255, 255, 255, 0.9);
 
           .tip {
             position: absolute;
@@ -150,7 +167,7 @@ export default {
     }
   }
   .tagWrap {
-    height: px2rem(115);
+    
     padding-top: px2rem(10);
    
     margin: 0 px2rem(13);
@@ -169,7 +186,7 @@ export default {
         -ms-transform-origin: top left;
         transform-origin: top left;
         border: 0 rgba(0, 0, 0, 0.1) solid;
-        border: 1px solid red;
+        border: 1px solid #cccccc;
         border-radius: 45%;
       }
     }

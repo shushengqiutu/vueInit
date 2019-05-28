@@ -3,7 +3,7 @@
     <template>
   <div class="block">
    
-    <el-carousel  trigger="click" height="422px">
+    <el-carousel id="box" trigger="click" >
 
       <el-carousel-item v-for="(item,index) in top_mv" :key="index">
          <img :src="item.cover" alt="" width="100%">   
@@ -28,6 +28,14 @@ export default {
   }
 };
 </script>
+   <style lang="scss" >
+     .topSwiper #box{
+         height: px2rem(200);
+     }
+   .topSwiper  .el-carousel__container{
+      height: px2rem(300);
+   }
+   </style>
    
 <style lang="scss" scoped>
 .topSwiper {

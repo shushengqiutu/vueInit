@@ -5,6 +5,10 @@ export const ADD_URL = ` ${BASE_URL}/search`;
 export const RECOMMENDED_SONGS_URL = ` ${BASE_URL}/personalized`;
 //歌单详情
 export const SONG_LIST_INFO = ` ${BASE_URL}/playlist/detail`;
+//播放音乐    
+export const PLAY_SONG_URL = ` ${BASE_URL}/song/url`;
+//歌词链接
+export const LYRIC_URL = ` ${BASE_URL}/lyric`;
 
 //推荐新歌
 export const NEWSONG_URL = ` ${BASE_URL}/personalized/newsong`;
