@@ -30,7 +30,7 @@
           
         },
         mounted(){
-        
+         console.log(this.f_new_songs(),111)
         },
         computed:{
          

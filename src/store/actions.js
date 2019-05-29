@@ -23,9 +23,7 @@ export default {
                 //调用 mutation 函数
             commit(RECEIVE_ADDMSG, { mm })
         }
-
     },
-
     //异步获取推荐音乐列表
     async get_recommended_songs({ commit }) {
         const result = await req_recommended_songs()

@@ -5,10 +5,10 @@
       class="sub_list"
       v-for="(item,index) in newSongs"
       :key="index"
-       @click="jumpPlay(item.id,item.ar[0].name+'-'+item.song.artists[0].name)"
+       @click="jumpPlay(item.id,item.name+'-'+item.song.artists[0].name)"
     >
       <div class="song">
-        <h3 class=" songName f-thide"> {{item.ar[0].name}}</h3>
+        <h3 class=" songName f-thide"> {{item.name}}</h3>
         <p class="author f-thide">{{item.song.artists[0].name}} - {{item.song.album.name}}</p>
       </div>
       <div class="play">
