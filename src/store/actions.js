@@ -38,7 +38,7 @@ export default {
     async get_song_list_info({ commit }, { id }) {
         const result = await req_song_list_info({ id })
         if (result.code == 200) {
-
+            console.log(result, 5555)
             const song_list_info = result.playlist
 
             commit(SET_SONG_LIST_INFO, { song_list_info })

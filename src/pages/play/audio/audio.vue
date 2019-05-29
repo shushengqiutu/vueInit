@@ -3,7 +3,7 @@
     class="my_audio"
     ref="myAudio"
   >
-  
+
     <div
       class="ta_c"
       @click="control"
@@ -19,7 +19,7 @@
       > </i>
       <audio
         ref="music"
-        :src="song[0].url"
+        :src="song_url[0].url"
         loop
       ></audio>
 
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+
+import {mapState} from "vuex"
 export default {
   data() {
     return {
@@ -50,34 +52,28 @@ export default {
       currentTimes: "",
       durationTimes: "",
       n:64,
-      x:[]
+      x:[],
+     
     };
   },
   mounted() {
     this.setHight();
     this._addEventListenner();
-    // console.log(this.lyric.split('\n'),34)
-   
-   
   },
   watch:{
 
   },
-  props: {
-    song: {},
-    lyric: {
-      type: String
-    },
-    info: {
-      type: String
-    }
-  },
-  computed: {
+  
+  props:['info'],
+  computed:{
+    ...mapState(["song_url","lyric"]),
     newLc() {
-      return this.f_lyric(this.lyric);
+       return this.f_lyric(this.lyric.lyric);
     }
   },
+  
   methods: {
+  
    re(index) {
        
      if(parseInt(this.currentTimes)===parseInt(this.duration)){
@@ -89,12 +85,7 @@ export default {
               console.log(index)
               this.n=parseInt(this.n)-64+"px" 
       }
-      
 
-      
-
-      
-     
       
     },
     setHight() {
@@ -127,7 +118,10 @@ export default {
       this.$refs.music.addEventListener("timeupdate", this._currentTime);
       this.$refs.music.addEventListener("canplay", this._durationTime);
     },
-    _romoveEventListenner() {},
+    _romoveEventListenner() {
+      this.$refs.music.removeEventListener("timeupdate", this._currentTime);
+      this.$refs.music.removeEventListener("canplay", this._durationTime);
+    },
     _currentTime() {
       this.currentTimes = this.$refs.music.currentTime;
     },
@@ -135,7 +129,12 @@ export default {
       this.durationTimes = this.$refs.music.duration;
     }
     // 歌词盒子移动
+  },
+  beforeDestroy(){
+    this._romoveEventListenner()
   }
+  
+
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <sub-search></sub-search>
-    <h3 class="hotSearch"> 热门搜索</h3>
+    <h3 class="hotSearch"> 热门搜索 {{targets}}</h3>
     <div class="textList">
       <span v-for="(item,index) in hot_search" :key="index"> {{item.first}}</span>
     </div>
@@ -13,6 +13,11 @@ import subSearch from "../../../components/search/sub_search.vue";
 import { mapState } from "vuex";
 
 export default {
+  data(){
+     return {
+       tag:this.targets
+     }
+  },
   components: {
     subSearch
   },
@@ -22,9 +27,13 @@ export default {
    
   },
   computed:{
-     ...mapState(["hot_search"])
+     ...mapState(["hot_search","targets"])
+  },
+  watch: {
+      targets(tg){
+          console.log(tg,5555)
+      }
   }
- 
 };
 </script>
    

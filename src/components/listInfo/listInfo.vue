@@ -57,11 +57,15 @@ export default {
   mounted(){
     
   },
-  props:{
-    info:{
-     type:Object
-    }
-  },
+  // props:{
+  //   // info:{
+  //   //  type:{ 
+  //   //    type:{}
+  //   //  }
+  //   // }
+   
+  // },
+   props:["info"],
   data() {
     return {
       show: true

@@ -4,13 +4,38 @@
     <input
       class="search"
       type="text"
-      placeholder="搜索歌手.歌曲.专辑"
+      :placeholder="!target?tip:''"
+      v-model="target"
     >
     <span class="toLink"> </span>
   </div>
 </template>
    <script>
-export default {};
+import { mapMutations, mapState } from "vuex";
+export default {
+  data() {
+    return {
+      tip: "搜索歌手.歌曲.专辑",
+      target: "",
+      flag: false
+    };
+  },
+  beforeMount() {},
+
+  watch: {
+    target(news) {
+      this.set_targets(news);
+    },
+    "$route.name"(route) {
+      console.log(route)
+      this.set_targets('1');
+    }
+  },
+  methods: {
+    ...mapMutations(["set_targets"])
+  },
+ 
+};
 </script>
    
 <style lang="scss" scoped>

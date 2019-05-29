@@ -1,7 +1,7 @@
 <template >
   <div class="play">
-     
-        <my-audio :song="song_url" :lyric="lyric.lyric"  :info="info"></my-audio>
+    
+        <my-audio  :info="info"></my-audio>
         
      
       </div>
@@ -23,7 +23,7 @@ export default {
   },
  
   computed: {
-      ...mapState(["song_url","lyric"]),
+     
        info(){
            return this.$route.query.info
        }

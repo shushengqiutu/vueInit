@@ -23,12 +23,13 @@
 </template>
    <script>
 export default {
-  props: {
-    hot_songs: {
-      type: Array
-    },
+  // props: {
+  //   hot_songs: {
+  //     type: {}
+  //   },
   
-  },
+  // },
+  props:["hot_songs"],
   mounted() {
     
   },

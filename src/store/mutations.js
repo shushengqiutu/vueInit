@@ -38,6 +38,11 @@ export default {
         state.lyric = lyric
 
     },
+    //存入搜索数据
+    set_targets(state, newstargets) {
 
+        state.targets = newstargets
+
+    },
 
 }

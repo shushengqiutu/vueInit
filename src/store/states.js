@@ -1,6 +1,6 @@
 //储存所有处理数据
 export default {
-    msg: "例子",
+    // demo: "例子",
     recommended_songs: [], //推荐歌单
     song_list_info: [], //歌单详情
     new_songs: [], //新音乐
@@ -8,5 +8,6 @@ export default {
     hot_songs: [], //热歌排行榜
     hot_search: [], //热门搜索列表
     song_url: [], //热门搜索列表
-    lyric: ""
+    lyric: "", //歌词
+    targets: " " //搜索页面绑定搜索内容
 }

@@ -15,10 +15,13 @@ export default {
     components:{
       Info,List
     },
-    mounted(){
+    beforeMount(){
         const id=this.$route.query.songListId
     
        this.$store.dispatch("get_song_list_info",{id})
+      
+    },
+    mounted(){
       
     },
     data(){
