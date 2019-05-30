@@ -3,7 +3,7 @@
   <div class="header">
     <div class="top clearfixed">
       <h1> <i class="el-icon-service"></i>网易音乐云 </h1>
-      <a href="javaScript:;">登录/注册</a>
+      <button class="btn" @click="logoin">登录/注册</button>
     </div>
     <nav>
       <span href="javaScript:;"
@@ -52,8 +52,6 @@ export default {
     
     
     methods:{
-        
-        
         jump(obj,index){
 
             
@@ -63,7 +61,11 @@ export default {
                     name:obj.name
                 }
             })
+        },
+        logoin(){
+            this.$router.push({name:"logoin"})
         }
+
     },
  
    
@@ -100,7 +102,7 @@ export default {
        }
        
     }
-    a {
+    .btn {
       
       font-size: px2rem(15);
       color: #ffffff;
@@ -109,6 +111,7 @@ export default {
       text-align: center;
       padding:px2rem(8) px2rem(2);
       border-radius: px2rem(33);
+      background-color: #d43c33;
       
     }
   }

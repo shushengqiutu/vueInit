@@ -1,4 +1,4 @@
-import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV, SET_HOT_SONGS, SET_HOT_SEARCH, SET_SONG_LIST_INFO, SET_SONG_URL, SET_LYRIC } from "./mutation-type" //引入matution函数名
+import { RECEIVE_ADDMSG, SET_RECOMMENDED_SONGS, SET_NEW_SONGS, SET_TOP_MV, SET_HOT_SONGS, SET_HOT_SEARCH, SET_SONG_LIST_INFO, SET_SONG_URL, SET_LYRIC, SET_SUGGEST, SET_MULTIMATCH } from "./mutation-type" //引入matution函数名
 //封装处理state的函数，只能处理同步，逻辑越少越好 state里的数据只能被mutation修改
 export default {
     [RECEIVE_ADDMSG](state, { mm }) {
@@ -44,5 +44,18 @@ export default {
         state.targets = newstargets
 
     },
+    //搜索建议
+    [SET_SUGGEST](state, { suggest }) {
+        console.log(suggest, 55)
+        state.suggest = suggest
+
+    },
+    //搜索多重匹配
+    [SET_MULTIMATCH](state, { multimatch }) {
+        state.multimatch = multimatch
+
+    },
+
+
 
 }

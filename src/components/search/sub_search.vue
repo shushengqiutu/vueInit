@@ -6,12 +6,14 @@
       type="text"
       :placeholder="!target?tip:''"
       v-model="target"
+    
     >
     <span class="toLink"> </span>
   </div>
 </template>
    <script>
-import { mapMutations, mapState } from "vuex";
+import { mapMutations, mapState, mapActions } from "vuex";
+import axios from "axios"
 export default {
   data() {
     return {
@@ -20,20 +22,40 @@ export default {
       flag: false
     };
   },
-  beforeMount() {},
+  beforeMount() {
+   
+  },
+ 
 
   watch: {
     target(news) {
-      this.set_targets(news);
+      
+    
+      if(news){
+        const keywords=news
+        const type="mobile"
+        this.get_suggest({ keywords, type })
+        this.get_hot_search()
+        this.set_targets(news);
+      }else{
+          
+           this.retarget('')
+      }
     },
-    "$route.name"(route) {
-      console.log(route)
-      this.set_targets('1');
-    }
+  
   },
   methods: {
-    ...mapMutations(["set_targets"])
+    ...mapMutations(["set_targets"]),
+    ...mapActions(['get_hot_search','get_suggest']),
+    retarget(){
+        this.set_targets();
+    }
+   
+    
   },
+  beforeDestroy(){
+   this.retarget('')
+  }
  
 };
 </script>

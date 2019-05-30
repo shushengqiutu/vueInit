@@ -9,5 +9,8 @@ export default {
     hot_search: [], //热门搜索列表
     song_url: [], //热门搜索列表
     lyric: "", //歌词
-    targets: " " //搜索页面绑定搜索内容
+    targets: " ", //搜索页面绑定搜索内容
+    suggest: [], //搜索建议
+    multimatch: [], //搜索多重匹配
+
 }

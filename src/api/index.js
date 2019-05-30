@@ -1,5 +1,5 @@
 import ajax from "./ajax" //引入封装的ajax
-import { ADD_URL, RECOMMENDED_SONGS_URL, NEWSONG_URL, MV_URL, HOT_SONGS_URL, HOT_SEARCH_URL, SONG_LIST_INFO, PLAY_SONG_URL, LYRIC_URL } from "./req_url" // 引入请求地址
+import { ADD_URL, RECOMMENDED_SONGS_URL, NEWSONG_URL, MV_URL, HOT_SONGS_URL, HOT_SEARCH_URL, SONG_LIST_INFO, PLAY_SONG_URL, LYRIC_URL, SUGGEST_URL, MULTIMATCH_URL } from "./req_url" // 引入请求地址
 
 //封装请求接口
 export const req_add_msg = ({ keywords }) => ajax(ADD_URL, { keywords })
@@ -27,3 +27,7 @@ export const req_hot_songs = ({ idx }) => ajax(HOT_SONGS_URL, { idx } = { idx: 1
 // search页面
 //热门搜索
 export const req_hot_search = () => ajax(HOT_SEARCH_URL)
+    //搜索建议
+export const req_suggest_url = ({ keywords, type }) => ajax(SUGGEST_URL, { keywords, type })
+    //搜索多重匹配
+export const req_multimatch_url = ({ keywords }) => ajax(MULTIMATCH_URL, { keywords })

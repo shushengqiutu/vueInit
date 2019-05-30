@@ -2,6 +2,7 @@ import Vue from "vue"
 import Router from "vue-router"
 
 import Home from "../pages/home/home"
+import Logoin from "../pages/logoin/logoin"
 import SongSheetInfo from "../pages/songSheetInfo/songSheetInfo"
 import Play from "../pages/play/play"
 
@@ -22,6 +23,11 @@ export default new Router({
             path: '/home',
             redirect: '/mucic'
 
+        },
+        {
+            path: "/logoin",
+            name: "logoin",
+            component: Logoin,
         },
         {
             path: "/songSheetInfo",
@@ -61,9 +67,13 @@ export default new Router({
                     path: "/search",
                     name: "search",
                     component: Search,
+
                     meta: {
                         keepAlive: false // 不需要缓存
-                    }
+                    },
+                    children: [{
+                        path: ""
+                    }]
                 },
                 {
                     path: "/*",

@@ -17,3 +17,7 @@ export const MV_URL = ` ${BASE_URL}/top/mv`; //请求hot页面swiper图
 export const HOT_SONGS_URL = ` ${BASE_URL}/top/list`; //热歌排行榜 
 
 export const HOT_SEARCH_URL = ` ${BASE_URL}search/hot`; // //热门搜索
+//搜索建议
+export const SUGGEST_URL = ` ${BASE_URL}/search/suggest`
+    //搜索多重匹配
+export const MULTIMATCH_URL = ` ${BASE_URL}/search/multimatch`
