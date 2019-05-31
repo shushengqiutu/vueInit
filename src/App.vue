@@ -25,5 +25,6 @@ export default {
 </script>
 
 <style>
+
 @import "./assets/lib/resetCss/reset.css";
 </style>

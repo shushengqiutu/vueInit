@@ -5,6 +5,7 @@ import Home from "../pages/home/home"
 import Logoin from "../pages/logoin/logoin"
 import SongSheetInfo from "../pages/songSheetInfo/songSheetInfo"
 import Play from "../pages/play/play"
+import Reg from "../pages/reg/reg"
 
 import Music from "../pages/home/music/music"
 import Hot from "../pages/home/hot/hot"
@@ -29,6 +30,12 @@ export default new Router({
             name: "logoin",
             component: Logoin,
         },
+        {
+            path: "/reg",
+            name: "reg",
+            component: Reg,
+        },
+
         {
             path: "/songSheetInfo",
             name: "songSheetInfo",
@@ -71,9 +78,7 @@ export default new Router({
                     meta: {
                         keepAlive: false // 不需要缓存
                     },
-                    children: [{
-                        path: ""
-                    }]
+
                 },
                 {
                     path: "/*",
